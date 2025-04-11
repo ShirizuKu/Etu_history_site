@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Викторина{% endblock %}
+
+{% block content %}
+    <h1>Сопоставьте изобретения с изображениями</h1>
+    
+    {% if result %}
+    <div class="quiz-result {{ 'correct' if result == 'Все верно!' else 'incorrect' }}">
+        {{ result }}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+        <div class="quiz-grid">
+            <div class="text-column">
+                <h3>Историческая справка:</h3>
+                <div class="info-items">
+                    {% for key in ['1', '2', '3', '4', '5'] %}
+                    <div class="info-card">
+                        <h4>{{ quiz_data[key]['title'] }}</h4>
+                        <p>{{ quiz_data[key]['info'] }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="images-column">
+                <h3>Изображения:</h3>
+                <div class="image-items">
+                    {% for img_id in quiz_data %}
+                    <div class="image-item">
+                        <div class="image-box">
+                            <img src="{{ url_for('static', filename='images/img' + img_id + '.jpg') }}" 
+                                alt="Изобретение {{ loop.index }}">
+                        </div>
+                        <select name="{{ img_id }}">
+                            {% for key in ['1', '2', '3', '4', '5'] %}
+                            <option value="{{ quiz_data[key]['title'] }}" 
+                                    {% if user_answers.get(img_id) == quiz_data[key]['title'] %}selected{% endif %}>
+                                {{ quiz_data[key]['title'] }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <button type="submit">Проверить ответы</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,74 @@
+css
+
+/* Основные стили для светлой темы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Темная тема */
+body.dark-mode {
+    background-color: #181818;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background-color: #222;
+}
+
+body.dark-mode nav a {
+    color: #ffffff;
+}
+
+body.dark-mode section {
+    border: 1px solid #444;
+}
+
+/* Адаптивные стили */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav li {
+        display: block;
+        margin: 5px 0;
+    }
+}

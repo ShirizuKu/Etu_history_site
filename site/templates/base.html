@@ -1,0 +1,24 @@
+    <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История СПбГЭТУ (ЛЭТИ) - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Основание</a></li>
+            <li><a href="/topic1">Институт Имени Ленина</a></li>
+            <li><a href="/topic2">Развитие В Послевоенные Годы</a></li>
+            <li><a href="/topic3">Наше Время</a></li>
+            <li><a href="/quiz">Викторина</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
